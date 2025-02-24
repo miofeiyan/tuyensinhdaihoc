@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <!-- Phần khai báo meta và tiêu đề -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cổng Thông Tin Tuyển Sinh 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Phần CSS chung */
+        :root {
+            --primary-color: #2B677A;
+            --secondary-color: #FF6B6B;
+            --success-color: #52AB98;
+            --text-color: #2D3436;
+            --background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--background);
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            z-index: -1;
+            background-image: 
+                linear-gradient(var(--primary-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--primary-color) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #1A535C);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -10%;
+            width: 120%;
+            height: 100px;
+            background: white;
+            transform: rotate(-2deg);
+            box-shadow: 0 -10px 20px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem 0;
+            background-color: #e6e6e6;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            font-weight: bold;     
+            
+        }
+            nav a:hover {
+            color: #4a90e2;}
+
+        .card {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 2rem 0;
+        }
+
+        .grid > article {
+            flex: 1 1 calc(30% - 1rem);
+            margin: 0.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .grid > div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .university-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tdh {
+            width: 350px;
+            height: 200px;
+            border-radius: 0;
+            margin-bottom: 10px;
+        }
+.contact-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--success-color));
+    color: white;
+    padding: 4rem 0;
+    margin-top: 4rem;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.contact-section form {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.contact-section label {
+    display: block;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #f8f9fa;
+}
+
+.contact-section input, 
+.contact-section textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.contact-section textarea {
+    resize: none;
+    height: 100px;
+}
+
+.contact-section input[type="submit"] {
+    background: var(--secondary-color);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 12px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+.contact-section input[type="submit"]:hover {
+    background: #ff4f4f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.5);
+}
+
+
+        
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        button {
+            background: var(--secondary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            margin-top: 4rem;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: white;
+            transform: rotate(2deg);
+            box-shadow: 0 -10px 20px rgba(0,0,0,0.05);
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        .subjects {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            margin-top: 0.5rem;
+        }
+
+        .subject-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            margin: 0.5rem 0;
+            display: flex;
+            padding: 1rem 2rem;
+            align-items: left;
+            justify-content: center;
+        }
+
+        .badge {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Phần header -->
+    <header>
+        <div class="container">
+            <h1>CỔNG THÔNG TIN TUYỂN SINH 2025</h1>
+            <p style="color:lightblue"><u>Không có mưa gió làm sao thấy được cầu vồng!</u></p>
+        </div>
+    </header>
+
+    <!-- Phần navigation -->
+    <div class="nav-container">
+        <nav class="container">
+            <a href="#admission">Xét tuyển</a>
+            <a href="#future">Ngành hot</a>
+            <a href="#universities">Trường top</a>
+            <a href="#contact">Liên hệ</a>
+        </nav>
+    </div>
+
+    <!-- Phần main content -->
+    <main class="container">
+        <!-- Phần xét tuyển -->
+        <section id="admission" class="card">
+            <h2>📚 Phương Thức Xét Tuyển</h2>
+            <div class="grid">
+                <div>
+                    <h3>Các phương thức phổ biến</h3>
+                    <ul>
+                        <li>Xét điểm thi THPT Quốc gia (70% trường sử dụng)</li>
+                        <li>Xét học bạ THPT (3 học kỳ hoặc 5 học kỳ)</li>
+                        <li>Xét tuyển thẳng theo quy định Bộ GD&ĐT</li>
+                        <li>Xét kết hợp chứng chỉ quốc tế (IELTS, SAT)</li>
+                        <li>Thi đánh giá năng lực (ĐHQG, Bách Khoa)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="text-align:center;">Tổ hợp môn tiêu biểu</h3>
+                    <div class="subjects">
+                        <div class="subject-item">
+                            <span class="badge">A00</span> Toán - Lý - Hóa
+                        </div>
+                        <div class="subject-item">
+                            <span class="badge">A01</span> Toán - Lý - Anh
+                        </div>
+                        <div class="subject-item">
+                            <span class="badge">C00</span> Văn - Sử - Địa
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần ngành hot -->
+        <section id="future" class="card">
+            <h2>🚀 Ngành Học Triển Vọng 2024-2030</h2>
+            <div class="grid">
+                <article>
+                    <h3>Công nghệ Thông tin</h3>
+                    <ul>
+                        <li>Trí tuệ nhân tạo (AI)</li>
+                        <li>An ninh mạng</li>
+                        <li>Khoa học dữ liệu</li>
+                    </ul>
+                    <div class="button-group">
+                        <button onclick="toggleInfo('it')">Xem chi tiết</button>
+                    </div>
+                    <div id="it" class="toggle-content"></div>
+                </article>
+                <article>
+                    <h3>Kinh tế số</h3>
+                    <ul>
+                        <li>Thương mại điện tử</li>
+                        <li>Phân tích dữ liệu kinh doanh</li>
+                        <li>Quản lý chuỗi cung ứng</li>
+                    </ul>
+                    <div class="button-group">
+                        <button onclick="toggleInfo('kt')">Xem chi tiết</button>
+                    </div>
+                    <div id="kt" class="toggle-content"></div>
+                </article>
+                <article>
+                    <h3>Năng lượng Tái tạo</h3>
+                    <ul>
+                        <li>Kỹ thuật điện mặt trời</li>
+                        <li>Quản lý năng lượng</li>
+                        <li>Công nghệ pin</li>
+                    </ul>
+                    <div class="button-group">
+                        <button onclick="toggleInfo('renewable')">Xem chi tiết</button>
+                    </div>
+                    <div id="renewable" class="toggle-content"></div>
+                </article>
+                <article>
+                    <h3>Y tế và Chăm sóc sức khỏe</h3>
+                    <ul>
+                        <li>Công nghệ y tế</li>
+                        <li>Quản lý bệnh viện</li>
+                        <li>Dịch vụ chăm sóc sức khỏe từ xa</li>
+                    </ul>
+                    <div class="button-group">
+                        <button onclick="toggleInfo('yt')">Xem chi tiết</button>
+                    </div>
+                    <div id="yt" class="toggle-content"></div>
+                </article>
+                <article>
+                    <h3>Kỹ thuật Robot và Tự động hóa</h3>
+                    <ul>
+                        <li>Kỹ thuật robot</li>
+                        <li>Hệ thống tự động hóa</li>
+                        <li>Trí tuệ nhân tạo trong robot</li>
+                    </ul>
+                    <div class="button-group">
+                        <button onclick="toggleInfo('rb')">Xem chi tiết</button>
+                    </div>
+                    <div id="rb" class="toggle-content"></div>
+                </article>
+                <article>
+                    <h3>Công nghệ Sinh học</h3>
+                    <ul>
+                        <li>Y sinh học</li>
+                        <li>Dược phẩm thông minh</li>
+                        <li>Công nghệ gen</li>
+                    </ul>
+                    <div class="button-group">
+                        <button onclick="toggleInfo('biotech')">Xem chi tiết</button>
+                    </div>
+                    <div id="biotech" class="toggle-content"></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Phần trường đại học -->
+        <section id="universities" class="card">
+            <h2>🏫 Top Đại Học Việt Nam</h2>
+            <div class="grid">
+                <div class="university-card">
+                    <img src="https://bcp.cdnchinhphu.vn/334894974524682240/2024/7/17/dai-hoc-quoc-gia-1-1721220781922631391992.jpg" alt="ĐHQG Hà Nội" class="tdh">
+                    <div class="university-info">
+                        <h3>ĐH Quốc Gia Hà Nội</h3>
+                        <p>#1 Bảng xếp hạng Webometrics</p>
+                        <p>Đào tạo: 120 ngành</p>
+                        <p>Điểm chuẩn: 25-30</p>
+                    </div>
+                </div>
+                <div class="university-card">
+                    <img src="https://file1.dangcongsan.vn/data/0/images/2022/12/06/upload_22/dh-bach-khoa-hn-6-12.jpg" alt="Bách Khoa HN" class="tdh">
+                    <div class="university-info">
+                        <h3>ĐH Bách Khoa HN</h3>
+                        <p>Top 400 Châu Á (QS)</p>
+                        <p>Thế mạnh: Kỹ thuật</p>
+                        <p>Điểm chuẩn: 26-29</p>
+                    </div>
+                </div>
+                <div class="university-card">
+                    <img src="https://bcp.cdnchinhphu.vn/334894974524682240/2024/11/15/dh-xay-dung-ha-noi-kinh-te-quo-4461-7877-1689005637-1731659968683120651076.jpg" alt="ĐH KTQD" class="tdh">
+                    <div class="university-info">
+                        <h3>ĐH Kinh Tế Quốc Dân</h3>
+                        <p>Top 1 khối ngành kinh tế</p>
+                        <p>Chương trình chất lượng cao</p>
+                        <p>Điểm chuẩn: 27-28.5</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần liên hệ -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2>📬 Liên Hệ Tư Vấn</h2>
+        <p>Hãy để lại thông tin, chúng tôi sẽ liên hệ tư vấn cho bạn trong 10 ngàn năm nữa!</p>
+        <form action="#" method="post">
+            <label for="name">Họ và tên:</label>
+            <input type="text" id="name" name="name" placeholder="Nhập họ và tên của bạn" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required>
+
+            <label for="comment">Nội dung tư vấn:</label>
+            <textarea id="comment" name="comment" placeholder="Bạn cần tư vấn về điều gì?" required></textarea>
+
+            <input type="submit" value="Gửi yêu cầu">
+        </form>
+    </div>
+</section>
+
+    </main>
+
+    <!-- Phần footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+            <p>Tương lai là do chính bạn quyết định!</p>
+           	<p><strong>Liên hệ & Mạng Xã Hội</strong></p>
+            <a href="#" style="color:lightblue">Facebook</a>|
+            <a href="#" style="color:lightblue">Twitter</a> |
+            <a href="#" style="color:lightblue">Instagram</a>
+             </div>
+             <p>© Cổng Thông Tin Tuyển Sinh 2025</p>
+            <p>Hotline: 1800 100 biết</p>
+            <p>Tác giả: Nguyễn Công Hậu</p>
+        </div>
+    </footer>
+
+    <!-- Phần script -->
+    <script>
+        function toggleInfo(id) {
+            const element = document.getElementById(id);
+            element.style.maxHeight = element.style.maxHeight ? null : `${element.scrollHeight}px`;
+        }
+
+        // Thêm hiệu ứng khi scroll
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                if (cardTop < window.innerHeight * 0.8) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
